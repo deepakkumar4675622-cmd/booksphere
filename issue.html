@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Book - BookSphere</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <span>BookSphere</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="books.html"><i class="fas fa-book"></i> Books</a></li>
+                <li><a href="members.html"><i class="fas fa-users"></i> Members</a></li>
+                <li><a href="issue.html" class="active"><i class="fas fa-hand-holding-heart"></i> Issue Book</a></li>
+                <li><a href="return.html"><i class="fas fa-undo-alt"></i> Return Book</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1><i class="fas fa-hand-holding-heart"></i> Issue Book to Member</h1>
+        </div>
+
+        <div class="issue-container">
+            <div class="issue-form-card">
+                <h2>Issue Details</h2>
+                <form id="issueForm">
+                    <div class="form-group">
+                        <label><i class="fas fa-book"></i> Select Book</label>
+                        <select id="bookSelect" required>
+                            <option value="">-- Choose a book --</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Select Member</label>
+                        <select id="memberSelect" required>
+                            <option value="">-- Choose a member --</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar-alt"></i> Issue Date</label>
+                        <input type="date" id="issueDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar-check"></i> Due Date</label>
+                        <input type="date" id="dueDate" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-check-circle"></i> Issue Book
+                    </button>
+                </form>
+            </div>
+
+            <div class="recent-issues">
+                <h2>Recently Issued Books</h2>
+                <div id="recentIssuesList">
+                    <!-- Recent issues will be shown here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 BookSphere - Library Management System</p>
+    </footer>
+
+    <script src="js/library.js"></script>
+    <script src="js/issue.js"></script>
+</body>
+</html>

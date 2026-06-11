@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions - BookSphere</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-book-sparkles"></i>
+                <span>BookSphere Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="transactions.html" class="active">Transactions</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button id="themeToggle" class="theme-btn"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <div>
+                <h1><i class="fas fa-exchange-alt"></i> Transactions</h1>
+                <p>Issue and return books</p>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <!-- Issue Book Form -->
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3><i class="fas fa-hand-holding-heart"></i> Issue Book</h3>
+                </div>
+                <form id="issueForm">
+                    <div class="form-group">
+                        <label>Select Book</label>
+                        <select id="bookSelect" class="filter-select" style="width:100%;" required>
+                            <option value="">Loading books...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Member</label>
+                        <select id="memberSelect" class="filter-select" style="width:100%;" required>
+                            <option value="">Loading members...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Due Days</label>
+                        <select id="dueDays" class="filter-select">
+                            <option value="7">7 Days</option>
+                            <option value="14" selected>14 Days</option>
+                            <option value="21">21 Days</option>
+                            <option value="30">30 Days</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary btn-block">Issue Book</button>
+                </form>
+            </div>
+
+            <!-- Active Issues -->
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3><i class="fas fa-clock"></i> Currently Issued</h3>
+                </div>
+                <div id="activeIssuesList"></div>
+            </div>
+        </div>
+
+        <!-- Transaction History -->
+        <div class="recent-activity" style="margin-top: 2rem;">
+            <div class="activity-header">
+                <h3><i class="fas fa-history"></i> Transaction History</h3>
+            </div>
+            <div class="transactions-table">
+                <table>
+                    <thead>
+                        <tr><th>ID</th><th>Book</th><th>Member</th><th>Type</th><th>Date</th><th>Due Date</th><th>Fine</th></tr>
+                    </thead>
+                    <tbody id="transactionsTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Return Modal -->
+    <div id="returnModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Return Book</h2>
+                <span class="close" onclick="closeReturnModal()">&times;</span>
+            </div>
+            <form id="returnForm">
+                <input type="hidden" id="returnTransactionId">
+                <div class="form-group">
+                    <label>Return Date</label>
+                    <input type="date" id="returnDate" required>
+                </div>
+                <button type="submit" class="btn-primary btn-block">Return Book</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/transactions.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members - BookSphere</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-book-sparkles"></i>
+                <span>BookSphere Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="members.html" class="active">Members</a></li>
+                <li><a href="transactions.html">Transactions</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button id="themeToggle" class="theme-btn"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <div>
+                <h1><i class="fas fa-users"></i> Member Management</h1>
+                <p>Manage library members</p>
+            </div>
+            <button onclick="showAddMemberModal()" class="btn-primary">
+                <i class="fas fa-user-plus"></i> Add Member
+            </button>
+        </div>
+
+        <div class="search-box" style="margin: 1.5rem 0;">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchMemberInput" placeholder="Search by name, email, or phone...">
+        </div>
+
+        <div class="members-grid" id="membersGrid"></div>
+    </div>
+
+    <!-- Add Member Modal -->
+    <div id="addMemberModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Member</h2>
+                <span class="close" onclick="closeMemberModal()">&times;</span>
+            </div>
+            <form id="addMemberForm">
+                <div class="form-row">
+                    <input type="text" id="memberName" placeholder="Full Name" required>
+                    <input type="email" id="memberEmail" placeholder="Email" required>
+                </div>
+                <div class="form-row">
+                    <input type="tel" id="memberPhone" placeholder="Phone Number" required>
+                    <select id="membershipType" required>
+                        <option value="Student">Student</option>
+                        <option value="Teacher">Teacher</option>
+                        <option value="Researcher">Researcher</option>
+                        <option value="General">General</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <textarea id="memberAddress" placeholder="Address" rows="3" style="grid-column: span 2;"></textarea>
+                </div>
+                <button type="submit" class="btn-primary btn-block">Add Member</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/members.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

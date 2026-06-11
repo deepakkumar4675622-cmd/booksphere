@@ -1,0 +1,45 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "isbn": "978-0-7432-7356-5",
+      "category": "Fiction",
+      "isAvailable": true
+    },
+    {
+      "id": 2,
+      "title": "1984",
+      "author": "George Orwell",
+      "isbn": "978-0-452-28423-4",
+      "category": "Fiction",
+      "isAvailable": true
+    },
+    {
+      "id": 3,
+      "title": "Introduction to Algorithms",
+      "author": "Thomas H. Cormen",
+      "isbn": "978-0-262-03384-8",
+      "category": "Technology",
+      "isAvailable": false
+    }
+  ],
+  "members": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "phone": "1234567890",
+      "address": "123 Main Street, City"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "phone": "0987654321",
+      "address": "456 Oak Avenue, Town"
+    }
+  ],
+  "issuedBooks": []
+}
