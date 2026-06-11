@@ -3,174 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookSphere - Modern Library Management System</title>
-    
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Google Fonts -->
+    <title>BookSphere - Library Management System</title>
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-<!-- Navigation Bar -->
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
                 <i class="fas fa-book-sparkles"></i>
-                <span>BookSphere <span style="font-size: 12px; background: #00d4ff; color: #0a0e27; padding: 2px 6px; border-radius: 20px;">Pro</span></span>
+                <span>BookSphere <span class="pro-badge">Pro</span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
-                <li><a href="books.html"><i class="fas fa-book"></i> Books</a></li>
-                <li><a href="members.html"><i class="fas fa-users"></i> Members</a></li>
-                <li><a href="transactions.html"><i class="fas fa-exchange-alt"></i> Transactions</a></li>
+                <li><a href="index.html" class="active">🏠 Home</a></li>
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="books.html">📚 Books</a></li>
+                <li><a href="members.html">👥 Members</a></li>
+                <li><a href="transactions.html">🔄 Transactions</a></li>
             </ul>
-            <div class="nav-controls">
-                <button id="themeToggle" class="theme-btn">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
+            <button id="themeToggle" class="theme-btn">🌙</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-crown"></i> Enterprise Grade Solution
-            </div>
-            <h1 class="hero-title">
-                Smart Library<br>
-                <span class="gradient-text">Management System</span>
-            </h1>
-            <p class="hero-text">
-                Manage your library efficiently with real-time analytics,<br>
-                automated tracking, and seamless user experience.
-            </p>
+            <div class="hero-badge">🔥 Enterprise Grade Solution</div>
+            <h1 class="hero-title">Smart Library<br><span class="gradient-text">Management System</span></h1>
+            <p class="hero-text">Manage your library efficiently with real-time analytics, automated tracking, and seamless user experience.</p>
             <div class="hero-buttons">
-                <button onclick="location.href='dashboard.html'" class="btn-primary">
-                    Get Started <i class="fas fa-arrow-right"></i>
-                </button>
-                <button onclick="scrollToFeatures()" class="btn-outline">
-                    Learn More <i class="fas fa-play"></i>
-                </button>
+                <button onclick="location.href='dashboard.html'" class="btn-primary">Get Started →</button>
+                <button onclick="scrollToFeatures()" class="btn-outline">Learn More ▶</button>
             </div>
             <div class="hero-stats">
-                <div class="stat">
-                    <div class="stat-number" id="statBooks">0</div>
-                    <div class="stat-label">Total Books</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number" id="statMembers">0</div>
-                    <div class="stat-label">Active Members</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number" id="statIssued">0</div>
-                    <div class="stat-label">Books Issued</div>
-                </div>
+                <div class="stat"><div class="stat-number" id="statBooks">0</div><div class="stat-label">Total Books</div></div>
+                <div class="stat"><div class="stat-number" id="statMembers">0</div><div class="stat-label">Active Members</div></div>
+                <div class="stat"><div class="stat-number" id="statIssued">0</div><div class="stat-label">Books Issued</div></div>
             </div>
         </div>
     </section>
-<!-- Features Section -->
+
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge"><i class="fas fa-star"></i> Premium Features</span>
+                <span class="section-badge">⭐ Premium Features</span>
                 <h2>Why Choose <span class="gradient-text">BookSphere?</span></h2>
                 <p>Powerful features to streamline your library operations</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Real-time Analytics</h3>
-                    <p>Live dashboard with charts and insights</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>Smart Search</h3>
-                    <p>AI-powered book recommendations</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <h3>Export Reports</h3>
-                    <p>Generate PDF/Excel reports instantly</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bell"></i>
-                    </div>
-                    <h3>Auto Alerts</h3>
-                    <p>Email notifications for due dates</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Secure System</h3>
-                    <p>Bank-grade security with encryption</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>24/7 Support</h3>
-                    <p>Dedicated support team always ready</p>
-                </div>
+                <div class="feature-card"><div class="feature-icon">📈</div><h3>Real-time Analytics</h3><p>Live dashboard with charts and insights</p></div>
+                <div class="feature-card"><div class="feature-icon">🤖</div><h3>Smart Search</h3><p>AI-powered book recommendations</p></div>
+                <div class="feature-card"><div class="feature-icon">📄</div><h3>Export Reports</h3><p>Generate PDF/Excel reports instantly</p></div>
+                <div class="feature-card"><div class="feature-icon">🔔</div><h3>Auto Alerts</h3><p>Email notifications for due dates</p></div>
+                <div class="feature-card"><div class="feature-icon">🛡️</div><h3>Secure System</h3><p>Bank-grade security with encryption</p></div>
+                <div class="feature-card"><div class="feature-icon">🎧</div><h3>24/7 Support</h3><p>Dedicated support team always ready</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 BookSphere | Advanced Library Management System | All Rights Reserved</p>
-    </footer>
+    <footer><p>© 2024 BookSphere | Advanced Library Management System</p></footer>
 
-    <!-- JavaScript Files -->
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
-
     <script>
-        // Scroll to features section
-        function scrollToFeatures() {
-            document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Update homepage stats
-        function updateHomepageStats() {
+        function scrollToFeatures() { document.getElementById('features').scrollIntoView({ behavior: 'smooth' }); }
+        setTimeout(() => {
             const stats = library.getStats();
-            document.getElementById('statBooks').textContent = stats.totalBooks;
-            document.getElementById('statMembers').textContent = stats.totalMembers;
-            document.getElementById('statIssued').textContent = stats.booksIssued;
-        }
-
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        let isDark = true;
-     if(themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                isDark = !isDark;
-                if(isDark) {
-                    document.body.style.background = "#0a0e27";
-                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                } else {
-                    document.body.style.background = "#f0f0f0";
-                    document.body.style.color = "#333";
-                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                }
-            });
-        }
-        // Initialize
-        setTimeout(updateHomepageStats, 100);
+            document.getElementById('statBooks').innerText = stats.totalBooks;
+            document.getElementById('statMembers').innerText = stats.totalMembers;
+            document.getElementById('statIssued').innerText = stats.booksIssued;
+        }, 100);
     </script>
 </body>
 </html>
