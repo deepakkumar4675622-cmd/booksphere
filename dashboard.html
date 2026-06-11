@@ -4,118 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - BookSphere</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-book-sparkles"></i>
-                <span>BookSphere Pro</span>
-            </div>
+            <div class="logo"><i class="fas fa-book-sparkles"></i><span>BookSphere Pro</span></div>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="dashboard.html" class="active">Dashboard</a></li>
-                <li><a href="books.html">Books</a></li>
-                <li><a href="members.html">Members</a></li>
-                <li><a href="transactions.html">Transactions</a></li>
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="dashboard.html" class="active">📊 Dashboard</a></li>
+                <li><a href="books.html">📚 Books</a></li>
+                <li><a href="members.html">👥 Members</a></li>
+                <li><a href="transactions.html">🔄 Transactions</a></li>
             </ul>
-            <div class="nav-controls">
-                <button id="themeToggle" class="theme-btn"><i class="fas fa-moon"></i></button>
-            </div>
+            <button id="themeToggle" class="theme-btn">🌙</button>
         </div>
     </nav>
 
     <div class="container">
-        <div class="dashboard-header">
-            <div>
-                <h1><i class="fas fa-chart-line"></i> Dashboard</h1>
-                <p>Welcome back! Here's your library overview</p>
-            </div>
-            <div class="date-filter">
-                <select id="dateRange" class="filter-select">
-                    <option value="week">Last 7 Days</option>
-                    <option value="month" selected>Last 30 Days</option>
-                    <option value="year">Last Year</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Stats Cards -->
+        <div class="page-header"><h1>📊 Analytics Dashboard</h1><p>Welcome back! Here's your library overview</p></div>
+        
         <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon blue">
-                    <i class="fas fa-book"></i>
-                </div>
-                <div class="stat-details">
-                    <h3 id="totalBooks">0</h3>
-                    <p>Total Books</p>
-                    <span class="trend up">+12%</span>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon green">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div class="stat-details">
-                    <h3 id="totalMembers">0</h3>
-                    <p>Active Members</p>
-                    <span class="trend up">+8%</span>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon orange">
-                    <i class="fas fa-hand-holding-heart"></i>
-                </div>
-                <div class="stat-details">
-                    <h3 id="booksIssued">0</h3>
-                    <p>Books Issued</p>
-                    <span class="trend down">-3%</span>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon purple">
-                    <i class="fas fa-coins"></i>
-                </div>
-                <div class="stat-details">
-                    <h3 id="totalFine">₹0</h3>
-                    <p>Total Fine</p>
-                    <span class="trend up">+15%</span>
-                </div>
-            </div>
+            <div class="stat-card"><div class="stat-icon blue">📚</div><div class="stat-details"><h3 id="totalBooks">0</h3><p>Total Books</p><span class="trend up">↑ +12%</span></div></div>
+            <div class="stat-card"><div class="stat-icon green">👥</div><div class="stat-details"><h3 id="totalMembers">0</h3><p>Active Members</p><span class="trend up">↑ +8%</span></div></div>
+            <div class="stat-card"><div class="stat-icon orange">📖</div><div class="stat-details"><h3 id="booksIssued">0</h3><p>Books Issued</p><span class="trend down">↓ -3%</span></div></div>
+            <div class="stat-card"><div class="stat-icon purple">💰</div><div class="stat-details"><h3 id="totalFine">₹0</h3><p>Total Fine</p><span class="trend up">↑ +15%</span></div></div>
         </div>
 
-        <!-- Charts -->
         <div class="charts-row">
-            <div class="chart-container">
-                <div class="chart-header">
-                    <h3>Monthly Circulation</h3>
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <canvas id="circulationChart" height="300"></canvas>
-            </div>
-            <div class="chart-container">
-                <div class="chart-header">
-                    <h3>Book Categories</h3>
-                    <i class="fas fa-chart-pie"></i>
-                </div>
-                <canvas id="categoryChart" height="300"></canvas>
-            </div>
+            <div class="chart-container"><div class="chart-header"><h3>📈 Monthly Circulation</h3></div><canvas id="circulationChart" height="250"></canvas></div>
+            <div class="chart-container"><div class="chart-header"><h3>📊 Category Distribution</h3></div><canvas id="categoryChart" height="250"></canvas></div>
         </div>
 
-        <!-- Recent Activity -->
-        <div class="recent-activity">
-            <div class="activity-header">
-                <h3><i class="fas fa-clock"></i> Recent Activity</h3>
-                <button onclick="exportActivity()" class="btn-small">Export</button>
-            </div>
-            <div class="activity-list" id="activityList">
-                <!-- Dynamic content -->
-            </div>
-        </div>
+        <div class="recent-activity"><div class="activity-header"><h3>🕐 Recent Activity</h3><button onclick="exportActivity()" class="btn-small">📥 Export</button></div><div id="activityList"></div></div>
     </div>
+
+    <footer><p>© 2024 BookSphere | Advanced Library Management System</p></footer>
 
     <script src="js/data.js"></script>
     <script src="js/dashboard.js"></script>
