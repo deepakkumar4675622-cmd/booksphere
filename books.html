@@ -4,118 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books - BookSphere</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-book-sparkles"></i>
-                <span>BookSphere Pro</span>
-            </div>
+            <div class="logo"><i class="fas fa-book-sparkles"></i><span>BookSphere Pro</span></div>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="books.html" class="active">Books</a></li>
-                <li><a href="members.html">Members</a></li>
-                <li><a href="transactions.html">Transactions</a></li>
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="books.html" class="active">📚 Books</a></li>
+                <li><a href="members.html">👥 Members</a></li>
+                <li><a href="transactions.html">🔄 Transactions</a></li>
             </ul>
-            <div class="nav-controls">
-                <button id="themeToggle" class="theme-btn"><i class="fas fa-moon"></i></button>
-            </div>
+            <button id="themeToggle" class="theme-btn">🌙</button>
         </div>
     </nav>
 
     <div class="container">
-        <div class="page-header">
-            <div>
-                <h1><i class="fas fa-book"></i> Book Management</h1>
-                <p>Manage your library collection</p>
-            </div>
-            <button onclick="showAddBookModal()" class="btn-primary">
-                <i class="fas fa-plus"></i> Add New Book
-            </button>
-        </div>
-
-        <!-- Search and Filter Bar -->
+        <div class="page-header"><h1>📚 Book Management</h1><button onclick="showAddBookModal()" class="btn-primary">+ Add New Book</button></div>
+        
         <div class="search-filter-bar">
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="Search by title, author, or ISBN...">
-            </div>
-            <select id="categoryFilter" class="filter-select">
-                <option value="">All Categories</option>
-                <option value="Fiction">Fiction</option>
-                <option value="Non-Fiction">Non-Fiction</option>
-                <option value="Technology">Technology</option>
-                <option value="Science">Science</option>
-                <option value="History">History</option>
-            </select>
-            <select id="statusFilter" class="filter-select">
-                <option value="">All Status</option>
-                <option value="available">Available</option>
-                <option value="issued">Issued</option>
-            </select>
+            <div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" placeholder="Search by title, author or ISBN..."></div>
+            <select id="categoryFilter" class="filter-select"><option value="">All Categories</option><option>Fiction</option><option>Non-Fiction</option><option>Technology</option><option>Science</option><option>History</option></select>
+            <select id="statusFilter" class="filter-select"><option value="">All Status</option><option value="available">Available</option><option value="issued">Issued</option></select>
         </div>
 
-        <!-- Stats Summary -->
-        <div class="stats-summary">
-            <div class="summary-item">
-                <span>Total Books:</span>
-                <strong id="totalBooksCount">0</strong>
-            </div>
-            <div class="summary-item">
-                <span>Available:</span>
-                <strong id="availableBooksCount">0</strong>
-            </div>
-            <div class="summary-item">
-                <span>Issued:</span>
-                <strong id="issuedBooksCount">0</strong>
-            </div>
-        </div>
-
-        <!-- Books Grid -->
-        <div class="books-grid" id="booksGrid">
-            <!-- Books will be loaded here -->
-        </div>
+        <div class="stats-summary"><div class="summary-item">📚 Total Books: <strong id="totalBooksCount">0</strong></div><div class="summary-item">✅ Available: <strong id="availableBooksCount">0</strong></div><div class="summary-item">📖 Issued: <strong id="issuedBooksCount">0</strong></div></div>
+        
+        <div class="books-grid" id="booksGrid"></div>
     </div>
 
-    <!-- Add Book Modal -->
-    <div id="addBookModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Add New Book</h2>
-                <span class="close" onclick="closeModal()">&times;</span>
-            </div>
-            <form id="addBookForm">
-                <div class="form-row">
-                    <input type="text" id="bookTitle" placeholder="Book Title" required>
-                    <input type="text" id="bookAuthor" placeholder="Author" required>
-                </div>
-                <div class="form-row">
-                    <input type="text" id="bookISBN" placeholder="ISBN" required>
-                    <input type="text" id="bookPublisher" placeholder="Publisher">
-                </div>
-                <div class="form-row">
-                    <select id="bookCategory" required>
-                        <option value="">Select Category</option>
-                        <option value="Fiction">Fiction</option>
-                        <option value="Non-Fiction">Non-Fiction</option>
-                        <option value="Technology">Technology</option>
-                        <option value="Science">Science</option>
-                        <option value="History">History</option>
-                    </select>
-                    <input type="number" id="bookQuantity" placeholder="Quantity" value="1" min="1">
-                </div>
-                <div class="form-row">
-                    <input type="number" id="bookYear" placeholder="Publication Year">
-                    <input type="text" id="bookLocation" placeholder="Rack Location">
-                </div>
-                <button type="submit" class="btn-primary btn-block">Add Book</button>
-            </form>
-        </div>
-    </div>
+    <div id="addBookModal" class="modal"><div class="modal-content"><div class="modal-header"><h2>Add New Book</h2><span class="close" onclick="closeModal()">×</span></div>
+        <form id="addBookForm"><div class="form-row"><input type="text" id="bookTitle" placeholder="Book Title" required><input type="text" id="bookAuthor" placeholder="Author" required></div>
+        <div class="form-row"><input type="text" id="bookISBN" placeholder="ISBN"><input type="text" id="bookPublisher" placeholder="Publisher"></div>
+        <div class="form-row"><select id="bookCategory"><option>Fiction</option><option>Non-Fiction</option><option>Technology</option><option>Science</option><option>History</option></select><input type="number" id="bookQuantity" placeholder="Quantity" value="1"></div>
+        <div class="form-row"><input type="number" id="bookYear" placeholder="Year"><input type="text" id="bookLocation" placeholder="Rack Location"></div>
+        <button type="submit" class="btn-primary btn-block">Add Book</button></form>
+    </div></div>
+
+    <footer><p>© 2024 BookSphere | Advanced Library Management System</p></footer>
 
     <script src="js/data.js"></script>
     <script src="js/books.js"></script>
